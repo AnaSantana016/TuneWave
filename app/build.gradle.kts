@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -30,11 +31,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
     buildFeatures {
         compose = true
@@ -59,6 +60,53 @@ dependencies {
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
+
+    // Fragment
+    implementation("androidx.fragment:fragment-ktx:1.4.1")
+    // Activity
+    implementation("androidx.activity:activity-ktx:1.4.0")
+    // ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1")
+    // LiveData
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.1")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.5.0-rc01")
+    //Corrutinas
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.1")
+    //Firebase
+    implementation(platform("com.google.firebase:firebase-bom:28.2.1"))
+    implementation("com.google.firebase:firebase-analytics-ktx")
+    implementation("com.google.firebase:firebase-auth-ktx")
+    implementation("com.google.firebase:firebase-firestore-ktx")
+    //Timber
+    implementation("com.jakewharton.timber:timber:4.7.1")
+    //Lottie
+    implementation("com.airbnb.android:lottie:5.0.3")
+    //navigation
+    implementation("androidx.navigation:navigation-compose:2.4.0-rc01")
+    //coil tema de imagenes
+    implementation("io.coil-kt:coil-compose:1.4.0")
+    //hilt
+    implementation("com.google.dagger:hilt-android:2.44")
+    kapt("com.google.dagger:hilt-compiler:2.44")
+    implementation("androidx.hilt:hilt-navigation-compose:1.0.0-rc01")
+    //DaggerHilt
+    kapt("com.google.dagger:hilt-android-compiler:2.44")
+    //glide
+    implementation("com.github.bumptech.glide:glide:4.12.0")
+    kapt("com.github.bumptech.glide:compiler:4.12.0")
+    //room
+    implementation("androidx.room:room-ktx:2.5.0")
+    implementation("androidx.room:room-runtime:2.5.0")
+    kapt("androidx.room:room-compiler:2.5.0")
+    //retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.1.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.1.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.2.1")
+    // LiveData
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
+
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
