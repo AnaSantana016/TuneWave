@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "404143783771",
+    "project_id": "tunewave-app",
+    "storage_bucket": "tunewave-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:404143783771:android:8ab148fc33d4a80587e47e",
+        "android_client_info": {
+          "package_name": "com.example.tunewave"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoOf6ka7ZpQ7YHI-lUC8YR_q3D3IJJoC4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
