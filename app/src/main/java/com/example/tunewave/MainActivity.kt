@@ -1,6 +1,5 @@
 package com.example.tunewave
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -16,21 +15,19 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.paint
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -42,23 +39,19 @@ import com.example.tunewave.ui.theme.TuneWaveTheme
 
 class MainActivity : ComponentActivity() {
 
-    fun create(context: Context): Intent =
-        Intent(context, MainActivity::class.java)
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             TuneWaveTheme {
                 Surface {
-                    mainScreen()
+                    MainScreen()
                 }
             }
         }
     }
-
-
     @Composable
-    fun mainScreen() {
+    fun MainScreen() {
+
         val context = LocalContext.current
 
         Box(
@@ -67,14 +60,31 @@ class MainActivity : ComponentActivity() {
         ) {
             // Capa 1: Fondo
             Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(MaterialTheme.colorScheme.primary)
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.BottomCenter
             ) {
                 Image(
                     painter = painterResource(id = R.drawable.fondo),
                     contentDescription = null,
-                    modifier = Modifier.fillMaxSize().scale(5f)
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .scale(5f)
+                )
+            }
+
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.BottomCenter
+            ) {
+
+                Image(
+                    painter = painterResource(id = R.drawable.imagen),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .scale(5f)
+                        .background(Color(0f, 0f, 0f, 0.6f))
+                        .offset(y = (15).dp)
                 )
             }
 
@@ -97,6 +107,7 @@ class MainActivity : ComponentActivity() {
                             .size(200.dp) // Ajusta el tamaño según sea necesario
                             .scale(6f) // Ajusta la escala según sea necesario
                             .padding(bottom = 80.dp)
+                            .offset(x = (-10).dp)
                     )
 
                     // Imagen "portada_eminem" a la derecha
@@ -107,8 +118,24 @@ class MainActivity : ComponentActivity() {
                             .size(150.dp) // Ajusta el tamaño según sea necesario
                             .scale(5f) // Ajusta la escala según sea necesario
                             .padding(bottom = 16.dp)
+                            .offset(x = (5).dp)
                     )
                 }
+            }
+
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.BottomCenter
+            ) {
+                // Imagen "portada_eminem" a la derecha
+                Image(
+                    painter = painterResource(id = R.drawable.portada_milo),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .size(100.dp) // Ajusta el tamaño según sea necesario
+                        .scale(7f) // Ajusta la escala según sea necesario
+                        .padding(bottom = 40.dp)
+                )
             }
 
             // Capa 3: Botones en la parte inferior
@@ -167,5 +194,4 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-
 }
