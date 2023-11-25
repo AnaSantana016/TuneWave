@@ -27,6 +27,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
@@ -138,6 +139,40 @@ class MainActivity : ComponentActivity() {
                 )
             }
 
+            // Agregar textos "Tune" y "Wave" en la parte superior
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(horizontal = 16.dp),
+                contentAlignment = Alignment.TopCenter
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.Top
+                ) {
+                    // Texto "Tune" con borde negro y sombra
+                    Text(
+                        "TUNE",
+                        color = colorResource(id = R.color.redTunewave),
+                        fontSize = 65.sp,
+                        modifier = Modifier
+                            .offset(y = (15).dp)
+                    )
+
+                    // Texto "Wave" con borde negro y sombra
+                    Text(
+                        "WAVE",
+                        color = colorResource(id = R.color.blueTunewave),
+                        fontSize = 65.sp,
+                        modifier = Modifier
+                            .offset(y = (35).dp)
+                    )
+                }
+            }
+
             // Capa 3: Botones en la parte inferior
             Column(
                 modifier = Modifier
@@ -147,6 +182,7 @@ class MainActivity : ComponentActivity() {
                 verticalArrangement = Arrangement.Bottom,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+
                 Row(
                     horizontalArrangement = Arrangement.spacedBy(16.dp),
                     verticalAlignment = Alignment.CenterVertically
