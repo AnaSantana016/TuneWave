@@ -1,140 +1,171 @@
 package com.example.tunewave
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
-import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.SoftwareKeyboardController
-import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.draw.paint
+import androidx.compose.ui.draw.scale
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.example.tunewave.ui.login.LoginActivity
+import com.example.tunewave.ui.singIn.SignInActivity
 import com.example.tunewave.ui.theme.TuneWaveTheme
 
 class MainActivity : ComponentActivity() {
+
+    fun create(context: Context): Intent =
+        Intent(context, MainActivity::class.java)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             TuneWaveTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    RegisterForm()
+                Surface {
+                    mainScreen()
                 }
             }
         }
     }
-}
-
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalComposeUiApi::class)
-@Composable
-fun RegisterForm() {
-    var email by remember { mutableStateOf("") }
-    var name by remember { mutableStateOf("") }
-    var password by remember { mutableStateOf("") }
-
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-        Text(
-            text = "Back",
-            modifier = Modifier
-                .align(Alignment.Start)
-                .padding(8.dp)
-                .clickable { /* Handle back button click */ }
-        )
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        TextField(
-            value = email,
-            onValueChange = { email = it },
-            label = { Text("Email") },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(8.dp)
-        )
-
-        Spacer(modifier = Modifier.height(8.dp))
-
-        TextField(
-            value = name,
-            onValueChange = { name = it },
-            label = { Text("Name") },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(8.dp)
-        )
-
-        Spacer(modifier = Modifier.height(8.dp))
-
-        // Utilizar un lambda para encapsular el Text("Password")
-        /*val passwordLabel: @Composable (Modifier) -> Unit = {
-            Text("Password", modifier = it)
-        }
-
-        TextField(
-            value = password,
-            onValueChange = { password = it },
-            label = passwordLabel,
-            visualTransformation = PasswordVisualTransformation(),
-            keyboardOptions = KeyboardOptions.Default.copy(
-                imeAction = ImeAction.Done
-            ),
-            onImeActionPerformed = { action: ImeAction, controller: SoftwareKeyboardController? ->
-                if (action == ImeAction.Done) {
-                    controller?.hide()
-                }
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(8.dp)
-        )*/
 
 
-        Spacer(modifier = Modifier.height(16.dp))
+    @Composable
+    fun mainScreen() {
+        val context = LocalContext.current
 
-        Button(
-            onClick = { /* Handle registration */ },
-            modifier = Modifier.fillMaxWidth()
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
         ) {
-            Text("Register")
+            // Capa 1: Fondo
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(MaterialTheme.colorScheme.primary)
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.fondo),
+                    contentDescription = null,
+                    modifier = Modifier.fillMaxSize().scale(5f)
+                )
+            }
+
+            // Capa 2: Imágenes "portada_nicki" y "portada_eminem"
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.BottomCenter
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(8.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    // Imagen "portada_nicki" a la izquierda
+                    Image(
+                        painter = painterResource(id = R.drawable.portada_nicki),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(200.dp) // Ajusta el tamaño según sea necesario
+                            .scale(6f) // Ajusta la escala según sea necesario
+                            .padding(bottom = 80.dp)
+                    )
+
+                    // Imagen "portada_eminem" a la derecha
+                    Image(
+                        painter = painterResource(id = R.drawable.portada_eminem),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(150.dp) // Ajusta el tamaño según sea necesario
+                            .scale(5f) // Ajusta la escala según sea necesario
+                            .padding(bottom = 16.dp)
+                    )
+                }
+            }
+
+            // Capa 3: Botones en la parte inferior
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .fillMaxHeight()
+                    .padding(16.dp),
+                verticalArrangement = Arrangement.Bottom,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(16.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Button(
+                        onClick = {
+                            val intent = Intent(context, SignInActivity::class.java)
+                            context.startActivity(intent)
+                        },
+                        modifier = Modifier
+                            .fillMaxWidth(0.4f)
+                            .height(60.dp)
+                            .border(
+                                1.dp,
+                                colorResource(id = R.color.redTunewave),
+                                RoundedCornerShape(50)
+                            ),
+                        colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.blackTunewave))
+                    ) {
+                        Text("Sign In", color = Color.White, fontSize = 20.sp)
+                    }
+
+                    Button(
+                        onClick = {
+                            val intent = Intent(context, LoginActivity::class.java)
+                            context.startActivity(intent)
+                        },
+                        modifier = Modifier
+                            .fillMaxWidth(0.6f)
+                            .height(60.dp)
+                            .border(
+                                width = 2.dp,
+                                color = colorResource(id = R.color.blueTunewave),
+                                shape = RoundedCornerShape(50)
+                            ),
+                        colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.blackTunewave))
+                    ) {
+                        Text(
+                            "Login",
+                            color = Color.White,
+                            fontSize = 20.sp
+                        )
+                    }
+                }
+            }
         }
     }
-}
 
-@Preview(showBackground = true)
-@Composable
-fun PreviewRegisterForm() {
-    TuneWaveTheme {
-        RegisterForm()
-    }
 }
