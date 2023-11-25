@@ -60,7 +60,8 @@ dependencies {
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.compose.material3:material3")
+    implementation ("androidx.compose.material3:material3:1.0.0")
+
 
     // Fragment
     implementation("androidx.fragment:fragment-ktx:1.4.1")
@@ -80,6 +81,7 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics-ktx")
     implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.google.firebase:firebase-firestore-ktx")
+    implementation("com.google.firebase:firebase-storage-ktx")
     //Timber
     implementation("com.jakewharton.timber:timber:4.7.1")
     //Lottie
@@ -90,6 +92,7 @@ dependencies {
     implementation("io.coil-kt:coil-compose:1.4.0")
     //hilt
     implementation("com.google.dagger:hilt-android:2.44")
+    implementation("androidx.appcompat:appcompat:1.6.1")
     kapt("com.google.dagger:hilt-compiler:2.44")
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0-rc01")
     //DaggerHilt
