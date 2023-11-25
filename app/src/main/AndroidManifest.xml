@@ -25,6 +25,42 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ui.init.InitActivity"
+            android:label="Init Activity"
+            android:theme="@style/Theme.TuneWave"
+            android:exported="true">
+            <!-- Intent filter para la actividad de inicio -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:label="Login Activity"
+            android:theme="@style/Theme.TuneWave"
+            android:exported="true">
+            <!-- Intent filter para la actividad de inicio -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.singIn.SignInActivity"
+            android:label="Sign In Activity"
+            android:theme="@style/Theme.TuneWave"
+            android:exported="true">
+            <!-- Intent filter para la actividad de inicio -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
