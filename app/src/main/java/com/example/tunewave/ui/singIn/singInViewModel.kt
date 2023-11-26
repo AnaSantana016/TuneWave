@@ -49,8 +49,7 @@ class SignInViewModel @Inject constructor(private val createAccountUseCase: Sign
 
 
     private fun signInUser(userSignIn: UserModel) {
-        println("ENTRO")
-        /*viewModelScope.launch {
+        viewModelScope.launch {
             _viewState.value = userSignIn.toSignInViewState().copy(isLoading = false)
             val accountCreated = createAccountUseCase(userSignIn)
             if (accountCreated) {
@@ -59,7 +58,7 @@ class SignInViewModel @Inject constructor(private val createAccountUseCase: Sign
                 _showErrorDialog.value = true
             }
             _viewState.value = userSignIn.toSignInViewState().copy(isLoading = true)
-        }*/
+        }
     }
 
     fun onFieldsChanged(userSignIn: UserModel) {
