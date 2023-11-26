@@ -21,9 +21,17 @@ class AuthenticationService @Inject constructor(private val firebase: FireClient
         }
     }.take(1)
 
-    suspend fun login(email: String, password: String): LoginResult = runCatching {
-        firebase.auth.signInWithEmailAndPassword(email, password).await()
-    }.toLoginResult()
+    fun login(email: String, password: String):Boolean {
+        return firebase.auth.signInWithEmailAndPassword(email, password) != null
+    }
+
+    fun rstPassword(email: String) {
+        firebase.auth.sendPasswordResetEmail(email)
+    }
+
+    fun logout() {
+        firebase.auth.signOut()
+    }
 
     fun createAccount(email: String, password: String){
         firebase.auth.createUserWithEmailAndPassword(email, password)
