@@ -8,17 +8,9 @@ import javax.inject.Inject
 
 class SignInUseCase @Inject constructor(
     private val authenticationService: AuthenticationService,
-    private val userService: UserService
 ) {
 
-    suspend operator fun invoke(userSignIn: UserModel): Boolean {
-        val accountCreated =
-            authenticationService.createAccount(userSignIn.email, userSignIn.password) != null
-            //userService.uploadImage("/users", userSignIn.urlImage)
-        return if (accountCreated) {
-            userService.createUserTable(userSignIn)
-        } else {
-            false
-        }
+    operator fun invoke(userSignIn: UserModel) {
+        authenticationService.login(userSignIn.email, userSignIn.password)
     }
 }
