@@ -1,8 +1,8 @@
-<h1 align="center">📄 Primer Sprint Tunewave 🎧 </h1>
+<h1 align="center">📄 Segundo Sprint Tunewave 🎧 </h1>
 
 
 <img align="left" width="200" height="150" src="https://i.imgur.com/lqvy7iK.gif?raw=true"></a> 
-Este informe se centra en el primer Sprint del proyecto final de la asignatura. 🚀
+Este informe se centra en el Segundo Sprint del proyecto final de la asignatura. 🚀
 
 Tunewave es nuestra App Musical de los sueños 🎶, sumérgete en el mundo de Tunewave.
 
