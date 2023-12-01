@@ -20,17 +20,12 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -56,12 +51,12 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.OffsetMapping
 import androidx.compose.ui.text.input.TransformedText
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.sp
-import com.example.tunewave.MainActivity
 import com.example.tunewave.R
 import com.example.tunewave.data.database.AuthenticationService
 import com.example.tunewave.data.database.FireClient
@@ -79,6 +74,7 @@ class SignInActivity : ComponentActivity() {
             }
         }
     }
+
 
     @OptIn(ExperimentalMaterial3Api::class, ExperimentalComposeUiApi::class)
     @Composable
@@ -104,12 +100,10 @@ class SignInActivity : ComponentActivity() {
                     println(selectedImageUri)
                 }
             }
-
         Box(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
         ) {
-
             // Capa 1: Fondo
             Box(
                 modifier = Modifier.fillMaxSize(),
@@ -130,82 +124,15 @@ class SignInActivity : ComponentActivity() {
             ) {
 
                 Image(
-                    painter = painterResource(id = R.drawable.imagen),
+                    painter = painterResource(id = R.drawable.transparente),
                     contentDescription = null,
                     modifier = Modifier
                         .fillMaxSize()
                         .scale(5f)
                         .background(Color(0f, 0f, 0f, 0.6f))
-                        .offset(
-                            y = (70).dp,
-                            x = (-30).dp
-                        )
+                        .offset(y = (15).dp)
                 )
             }
-
-            Box(
-                modifier = Modifier.fillMaxSize(),
-                contentAlignment = Alignment.BottomCenter
-            ) {
-
-                Image(
-                    painter = painterResource(id = R.drawable.fondo_dualipa),
-                    contentDescription = null,
-                    modifier = Modifier
-                        .size(100.dp) // Ajusta el tamaño según sea necesario
-                        .scale(10f) // Ajusta la escala según sea necesario
-                        .padding(bottom = 10.dp)
-                        .offset(x = (-20).dp)
-                )
-            }
-
-            Box(
-                modifier = Modifier
-                    .padding(
-                        start = 16.dp,
-                        end = 280.dp
-                    )
-                    .height(40.dp)
-                    .offset(y = (-285).dp)
-            ) {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(40.dp)
-                        .border(
-                            width = 1.dp,
-                            color = colorResource(id = R.color.redTunewave),
-                            shape = RoundedCornerShape(50)
-                        )
-                        .background(color = colorResource(id = R.color.blackTunewave))
-                        .clickable {
-                            val intent = Intent(context, MainActivity::class.java)
-                            context.startActivity(intent)
-                        }
-                ) {
-
-                    // Icono de flecha hacia atrás
-                    Icon(
-                        imageVector = Icons.Default.ArrowBack,
-                        contentDescription = null,
-                        tint = Color.White,
-                        modifier = Modifier
-                            .size(24.dp)
-                            .padding(start = 6.dp)
-                            .offset (x = (10).dp,
-                                     y = (6).dp)
-                    )
-
-                    Text(
-                        text = "Back",
-                        color = Color.White,
-                        modifier = Modifier
-                            .padding(start = 45.dp)
-                            .offset(y = (8).dp)
-                    )
-                }
-            }
-
             Column(
                 modifier = Modifier
                     .fillMaxWidth(0.6f)
@@ -220,6 +147,17 @@ class SignInActivity : ComponentActivity() {
                     )
                     .padding(16.dp)
             ) {
+                Text(
+                    text = "Back",
+                    color = Color.White,
+                    modifier = Modifier
+                        .align(Alignment.Start)
+                        .padding(8.dp)
+                        .clickable { onBackPressedDispatcher?.onBackPressed() },
+                    fontSize = 18.sp, // Ajusta el tamaño del texto
+                    fontWeight = FontWeight.Bold, // Puedes ajustar el peso de la fuente aquí
+                )
+                Spacer(modifier = Modifier.height(16.dp))
 
                 Button(
                     onClick = { launcher.launch("image/*") },

@@ -32,6 +32,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.tunewave.ui.login.LoginActivity
@@ -139,25 +141,45 @@ class MainActivity : ComponentActivity() {
                 )
             }
 
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.BottomCenter
+            ) {
+                // Imagen "portada_eminem" a la derecha
+                Image(
+                    painter = painterResource(id = R.drawable.musica),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .size(100.dp) // Ajusta el tamaño según sea necesario
+                        .scale(5f) // Ajusta la escala según sea necesario
+                        .padding(bottom = 40.dp)
+                        .offset(y = (-5).dp)
+                )
+            }
+
             // Agregar textos "Tune" y "Wave" en la parte superior
             Box(
                 modifier = Modifier
-                    .fillMaxSize()
-                    .padding(horizontal = 16.dp),
+                    .fillMaxSize(),
                 contentAlignment = Alignment.TopCenter
             ) {
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 16.dp),
+                        .offset(y = (65).dp)
+                        .height((110).dp)
+                        .background(Color.Black)
+                        .padding(horizontal = 40.dp, vertical =0.dp),
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.Top
                 ) {
-                    // Texto "Tune" con borde negro y sombra
                     Text(
                         "TUNE",
                         color = colorResource(id = R.color.redTunewave),
-                        fontSize = 65.sp,
+                        fontSize = 60.sp,
+                        style = TextStyle(
+                            fontWeight = FontWeight.Bold, // Puedes ajustar el peso de la fuente aquí
+                        ),
                         modifier = Modifier
                             .offset(y = (15).dp)
                     )
@@ -166,9 +188,12 @@ class MainActivity : ComponentActivity() {
                     Text(
                         "WAVE",
                         color = colorResource(id = R.color.blueTunewave),
-                        fontSize = 65.sp,
+                        fontSize = 60.sp,
+                        style = TextStyle(
+                            fontWeight = FontWeight.Bold, // Puedes ajustar el peso de la fuente aquí
+                        ),
                         modifier = Modifier
-                            .offset(y = (35).dp)
+                            .offset(y = (30).dp)
                     )
                 }
             }
