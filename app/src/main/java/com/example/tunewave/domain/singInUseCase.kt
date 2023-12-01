@@ -10,7 +10,7 @@ class SignInUseCase @Inject constructor(
     private val authenticationService: AuthenticationService,
 ) {
 
-    operator fun invoke(userSignIn: UserModel) {
-        authenticationService.login(userSignIn.email, userSignIn.password)
+    operator fun invoke(userSignIn: UserModel):Boolean {
+        return authenticationService.login(userSignIn.email, userSignIn.password)!=null;
     }
 }
