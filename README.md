@@ -21,8 +21,8 @@ Este informe ha sido elaborado por el Grupo 13 del curso de Programación de Apl
 </p>
 
 ## 🎵 Librerías y Arquitectura de Tunewave 🚀
-<p align="center">
-  
+<div style="text-align: center;">
+
 [![Retrofit](https://img.shields.io/badge/Retrofit-purple?style=for-the-badge&logo=android)]()
 [![Exoplayer](https://img.shields.io/badge/Exoplayer-orange?style=for-the-badge&logo=android)]()
 [![Firebase](https://img.shields.io/badge/Firebase-red?style=for-the-badge&logo=firebase)]()
@@ -30,7 +30,9 @@ Este informe ha sido elaborado por el Grupo 13 del curso de Programación de Apl
 [![MVVM](https://img.shields.io/badge/MVVM-blue?style=for-the-badge&logo=androidstudio)]()
 [![Music API](https://img.shields.io/badge/Music_API-red?style=for-the-badge&logo=youtubemusic)]()
 
-</p>
+</div>
+
+
 
 ## 📑 Contenido del Informe
 
