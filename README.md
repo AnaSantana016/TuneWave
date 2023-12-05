@@ -21,17 +21,16 @@ Este informe ha sido elaborado por el Grupo 13 del curso de Programación de Apl
 </p>
 
 ## 🎵 Librerías y Arquitectura de Tunewave 🚀
+<p align="center">
+  
+[![Retrofit](https://img.shields.io/badge/Retrofit-purple?style=for-the-badge&logo=android)]()
+[![Exoplayer](https://img.shields.io/badge/Exoplayer-orange?style=for-the-badge&logo=android)]()
+[![Firebase](https://img.shields.io/badge/Firebase-red?style=for-the-badge&logo=firebase)]()
+[![DaggerHilt](https://img.shields.io/badge/Dagger-Hilt-green?style=for-the-badge&logo=americanairlines)]()
+[![MVVM](https://img.shields.io/badge/MVVM-blue?style=for-the-badge&logo=androidstudio)]()
+[![Music API](https://img.shields.io/badge/Music_API-red?style=for-the-badge&logo=youtubemusic)]()
 
-[![Retrofit](https://img.shields.io/badge/Retrofit-purple?style=for-the-badge&logo=android)](Link_A_Tu_Pagina_De_Retrofit)
-
-[![Exoplayer](https://img.shields.io/badge/Exoplayer-orange?style=for-the-badge&logo=android)](Link_A_Tu_Pagina_De_Retrofit)
-
-[![Firebase](https://img.shields.io/badge/Firebase-red?style=for-the-badge&logo=firebase)](Link_A_Tu_Pagina_De_Retrofit)
-
-[![DaggerHilt](https://img.shields.io/badge/Dagger-Hilt-green?style=for-the-badge&logo=americanairlines)](Link_A_Tu_Pagina_De_Retrofit)
-
-[![MVVM](https://img.shields.io/badge/MVVM-blue?style=for-the-badge&logo=androidstudio)](Link_A_Tu_Pagina_De_Retrofit)
-
+</p>
 
 ## 📑 Contenido del Informe
 
