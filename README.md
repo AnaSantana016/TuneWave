@@ -15,9 +15,10 @@ Este informe ha sido elaborado por el Grupo 13 del curso de Programación de Apl
 [![GitHub](https://img.shields.io/badge/GitHub-Alejandro%20David%20Arzola%20Saavedra-blue?style=flat-square&logo=github)](https://github.com/AlejandroDavidArzolaSaavedra)
   
 <p align="center">
+  <img width="200px" src="https://github.com/AnaSantana016/TuneWave/assets/90756437/b090169d-c71e-4375-a7ec-4cc35b4cb3d3"/>
   <img src="https://github.com/AnaSantana016/TuneWave/assets/90756437/f5f77bf4-216c-4624-a313-cec8e61e380e"/>
+  <img width="200px" src="https://github.com/AnaSantana016/TuneWave/assets/90756437/a63a861f-c154-441a-a834-3ba8495fe048"/>
 </p>
-
 
 ## 🎵 Librerías y Arquitectura de Tunewave 🚀
 
