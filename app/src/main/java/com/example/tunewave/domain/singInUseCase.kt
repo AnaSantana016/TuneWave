@@ -8,9 +8,11 @@ import javax.inject.Inject
 
 class SignInUseCase @Inject constructor(
     private val authenticationService: AuthenticationService,
+    private val userService: UserService
 ) {
 
-    operator fun invoke(userSignIn: UserModel):Boolean {
+    suspend operator fun invoke(userSignIn: UserModel):Boolean {
+        print(userService.createUserTable(userSignIn) != null) ;
         return authenticationService.login(userSignIn.email, userSignIn.password)!=null;
     }
 }

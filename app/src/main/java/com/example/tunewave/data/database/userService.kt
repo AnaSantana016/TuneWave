@@ -12,7 +12,7 @@ class UserService @Inject constructor(private val firebase: FireClient) {
         const val USER_COLLECTION = "users"
     }
 
-    suspend fun createUserTable(userSignIn: UserModel): Boolean {
+    fun createUserTable(userSignIn: UserModel): Boolean {
         try {
             val userData = UserData(
                 urlImage = userSignIn.urlImage,
@@ -24,7 +24,6 @@ class UserService @Inject constructor(private val firebase: FireClient) {
             firebase.db
                 .collection(USER_COLLECTION)
                 .add(userData)
-                .await()
 
             return true
         } catch (e: Exception) {
@@ -32,9 +31,10 @@ class UserService @Inject constructor(private val firebase: FireClient) {
         }
     }
 
-    suspend fun uploadImage(path: String, imageUri: String): String {
+    fun uploadImage(path: String, imageUri: String): String {
         try {
-            val storageRef = firebase.storage.reference.child("${path}/${getRandomId()}")
+            val idImage = getRandomId()
+            val storageRef = firebase.storage.reference.child("${path}/${idImage}")
             val downloadUrl = storageRef.putFile(imageUri.toUri())
                 .continueWithTask { task ->
                     if (!task.isSuccessful) {
@@ -42,9 +42,8 @@ class UserService @Inject constructor(private val firebase: FireClient) {
                     }
                     storageRef.downloadUrl
                 }
-                .await()
 
-            return downloadUrl.toString()
+            return idImage
         } catch (e: Exception) {
             throw e
         }

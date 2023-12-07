@@ -60,7 +60,9 @@ import androidx.compose.ui.unit.sp
 import com.example.tunewave.R
 import com.example.tunewave.data.database.AuthenticationService
 import com.example.tunewave.data.database.FireClient
+import com.example.tunewave.data.database.UserService
 import com.example.tunewave.ui.init.InitActivity
+import com.example.tunewave.ui.singIn.user.UserModel
 
 class SignInActivity : ComponentActivity() {
 
@@ -247,6 +249,20 @@ class SignInActivity : ComponentActivity() {
 
                         val authenticationService = AuthenticationService(FireClient())
                         authenticationService.createAccount(email, password)
+
+                        // Verificar si selectedImageUri es nulo y proporcionar un valor predeterminado
+                        val imageUrl = selectedImageUri?.toString() ?: ""
+
+                        val userService = UserService(FireClient())
+                        val image = userService.uploadImage("/imagenes/usuario",imageUrl)
+
+                        userService.createUserTable(UserModel(
+                                                        image,
+                                                        email,
+                                                        username,
+                                                        password,
+                                                        password
+                                                    ))
 
                         // Iniciar la actividad InitActivity después de completar el registro
                         val intent = Intent(context, InitActivity::class.java)
