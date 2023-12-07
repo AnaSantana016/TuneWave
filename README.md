@@ -1,14 +1,11 @@
-<h1 align="center">📄 Primer Sprint Tunewave 🎧 </h1>
-
+<h1 align="center">¡Bienvenido a 🎧Tunewave!</h1>
 
 <img align="left" width="200" height="150" src="https://i.imgur.com/lqvy7iK.gif?raw=true"></a> 
-Este informe se centra en el primer Sprint del proyecto final de la asignatura. 🚀
-
 Tunewave es nuestra App Musical de los sueños 🎶, sumérgete en el mundo de Tunewave.
 
 Descubre y experimenta la música como nunca antes lo habías visto. 🎵
 
-El informe se ha generado utilizando LaTeX y se ha compilado en un documento PDF. 📄
+Se han realizado dos informes de los dos Sprint de la asignatura utilizando LaTeX y se ha compilado en un documento PDF. 📄
 
 ## 🙆👨‍💻 Autores (Ctrl + Click para ver los perfiles)
 Este informe ha sido elaborado por el Grupo 13 del curso de Programación de Aplicaciones Móviles Nativas (PAMN).
@@ -18,8 +15,23 @@ Este informe ha sido elaborado por el Grupo 13 del curso de Programación de Apl
 [![GitHub](https://img.shields.io/badge/GitHub-Alejandro%20David%20Arzola%20Saavedra-blue?style=flat-square&logo=github)](https://github.com/AlejandroDavidArzolaSaavedra)
   
 <p align="center">
+  <img width="200px" src="https://github.com/AnaSantana016/TuneWave/assets/90756437/b090169d-c71e-4375-a7ec-4cc35b4cb3d3"/>
   <img src="https://github.com/AnaSantana016/TuneWave/assets/90756437/f5f77bf4-216c-4624-a313-cec8e61e380e"/>
+  <img width="200px" src="https://github.com/AnaSantana016/TuneWave/assets/90756437/a63a861f-c154-441a-a834-3ba8495fe048"/>
 </p>
+
+## 🎵 Librerías y Arquitectura de Tunewave 🚀
+<div style="text-align: center;">
+
+[![Retrofit](https://img.shields.io/badge/Retrofit-purple?style=for-the-badge&logo=android)]()
+[![Exoplayer](https://img.shields.io/badge/Exoplayer-orange?style=for-the-badge&logo=android)]()
+[![Firebase](https://img.shields.io/badge/Firebase-red?style=for-the-badge&logo=firebase)]()
+[![DaggerHilt](https://img.shields.io/badge/Dagger-Hilt-green?style=for-the-badge&logo=americanairlines)]()
+[![MVVM](https://img.shields.io/badge/MVVM-blue?style=for-the-badge&logo=androidstudio)]()
+[![Music API](https://img.shields.io/badge/Music_API-red?style=for-the-badge&logo=youtubemusic)]()
+
+</div>
+
 
 
 ## 📑 Contenido del Informe
