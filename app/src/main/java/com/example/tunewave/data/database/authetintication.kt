@@ -33,8 +33,8 @@ class AuthenticationService @Inject constructor(private val firebase: FireClient
         firebase.auth.signOut()
     }
 
-    fun createAccount(email: String, password: String){
-        firebase.auth.createUserWithEmailAndPassword(email, password)
+    fun createAccount(email: String, password: String): Boolean{
+        return firebase.auth.createUserWithEmailAndPassword(email, password) !=null;
     }
 
     suspend fun sendVerificationEmail(): Any {

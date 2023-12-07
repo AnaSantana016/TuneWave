@@ -166,9 +166,9 @@ class MainActivity : ComponentActivity() {
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .offset(y = (65).dp)
+                        .offset(y = (28).dp)
                         .height((110).dp)
-                        .background(Color.Black)
+                        .background(colorResource(id = R.color.blackTunewave))
                         .padding(horizontal = 40.dp, vertical =0.dp),
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.Top
