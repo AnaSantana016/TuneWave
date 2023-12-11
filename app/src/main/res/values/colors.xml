@@ -8,6 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="blackTunewave">#1A1A1A</color>
-    <color name="blueTunewave">#00FED4</color>
+    <color name="blueTunewave">#60FBE2</color>
     <color name="redTunewave">#FF004D</color>
 </resources>
