@@ -1,8 +1,8 @@
 package com.example.tunewave.data.database
 
-import kotlinx.coroutines.tasks.await
 import androidx.core.net.toUri
-import com.example.tunewave.ui.singIn.user.UserModel
+import com.example.tunewave.ui.screens.signIn.user.UserModel
+import com.google.firebase.firestore.FirebaseFirestore
 import java.util.UUID
 import javax.inject.Inject
 
@@ -21,7 +21,7 @@ class UserService @Inject constructor(private val firebase: FireClient) {
                 password = userSignIn.password
             )
 
-            firebase.db
+            FirebaseFirestore.getInstance()
                 .collection(USER_COLLECTION)
                 .add(userData)
 
