@@ -1,0 +1,171 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'com.google.gms.google-services'
+}
+
+
+android {
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.example.tunewave"
+        minSdk 23
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += [
+                        "room.schemaLocation":"$projectDir/schemas".toString(),
+                        "room.incremental":"true",
+                        "room.expandProjection":"true"]
+            }
+        }
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+        // load fields from local.properties file
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file("local.properties").newDataInputStream())
+        buildConfigField "String", "SPOTIFY_CLIENT_ID", "\"${properties.getProperty("SPOTIFY_CLIENT_ID")}\""
+        buildConfigField "String", "SPOTIFY_CLIENT_SECRET", "\"${properties.getProperty("SPOTIFY_CLIENT_SECRET")}\""
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        // To enable the use of java.time api's with minSdk < 26
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.1.1'
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+}
+
+dependencies {
+
+    // core
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
+
+    // java.time support for api's < Android O
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
+
+    // compose
+    def composeBom = platform('androidx.compose:compose-bom:2022.10.00')
+    implementation composeBom
+    androidTestImplementation composeBom
+
+    implementation "androidx.compose.ui:ui"
+    implementation "androidx.compose.material:material"
+    implementation "androidx.compose.ui:ui-tooling-preview"
+    debugImplementation "androidx.compose.ui:ui-tooling"
+    debugImplementation "androidx.compose.ui:ui-test-manifest"
+    implementation 'androidx.activity:activity-compose:1.3.1'
+    implementation "androidx.navigation:navigation-compose:2.5.1"
+
+    implementation "com.google.android.material:material:1.5.0"
+
+    //accompanist
+    implementation "com.google.accompanist:accompanist-placeholder-material:0.13.0"
+
+    // image handling
+    implementation "io.coil-kt:coil-compose:2.1.0"
+    // lottie compose
+    implementation "com.airbnb.android:lottie-compose:5.2.0"
+
+    // testing
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
+    testImplementation "org.robolectric:robolectric:4.8.1"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1"
+    testImplementation 'org.mockito:mockito-core:3.9.0'
+    testImplementation "org.mockito.kotlin:mockito-kotlin:3.2.0"
+
+    // retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-jackson:2.9.0'
+    // Jackson support for kotlin types
+    implementation 'com.fasterxml.jackson.module:jackson-module-kotlin:2.13.2'
+
+    // hilt
+    implementation "com.google.dagger:hilt-android:2.38.1"
+    implementation 'androidx.hilt:hilt-navigation-compose:1.0.0'
+    kapt "com.google.dagger:hilt-compiler:2.38.1"
+
+    //exoplayer
+    implementation 'com.google.android.exoplayer:exoplayer-core:2.18.1'
+    // for PlayerNotificationManager
+    implementation 'com.google.android.exoplayer:exoplayer-ui:2.18.1'
+
+    // paging
+    implementation "androidx.paging:paging-runtime:3.1.1"
+    implementation "androidx.paging:paging-compose:1.0.0-alpha15"
+
+    // color extraction
+    implementation 'androidx.palette:palette-ktx:1.0.0'
+
+    // mdc components for view
+    // This dependency is not needed once the min lines param
+    // for Text composable becomes available in compose
+    // This parameter is needed in the home screen
+    implementation 'com.google.android.material:material:1.6.1'
+
+    implementation "androidx.compose.material3:material3:1.0.0"
+
+    //Firebase
+    implementation 'com.google.firebase:firebase-firestore:24.1.2'
+    implementation 'com.google.firebase:firebase-auth:19.2.0'
+    implementation 'com.google.firebase:firebase-storage-ktx:20.0.1'
+    implementation 'com.google.firebase:firebase-database-ktx:20.0.5'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.3.1"
+
+    implementation 'com.google.code.gson:gson:2.8.9'
+
+    // LiveData
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
+    //fragment
+    implementation 'androidx.fragment:fragment-ktx:1.4.1'
+
+    def room_version = "2.2.5"
+    // Android Room
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
+    implementation 'io.reactivex.rxjava3:rxjava:3.0.0'
+
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
+
+
+}
