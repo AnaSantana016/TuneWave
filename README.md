@@ -1,5 +1,10 @@
 <h1 align="center">¡Bienvenido a 🎧Tunewave!</h1>
 
+<p align="center">
+  <img width="600px" src="https://github.com/AnaSantana016/TuneWave/assets/90756437/da1da220-b355-494b-888f-3f216ba3965e">  
+</p>
+
+## 🙆 Que es Tunewave??? 
 <img align="left" width="200" height="150" src="https://i.imgur.com/lqvy7iK.gif?raw=true"></a> 
 Tunewave es nuestra App Musical de los sueños 🎶, sumérgete en el mundo de Tunewave.
 
