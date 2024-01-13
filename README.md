@@ -1,7 +1,7 @@
 <h1 align="center">¡Bienvenido a 🎧Tunewave!</h1>
 
 <p align="center" >
-  <img width="600px"src="https://github.com/AnaSantana016/TuneWave/assets/90756437/3a02fab4-b4b0-4bb3-96e0-a45a2a006693">  
+  <img width="600px"src="https://github.com/AnaSantana016/TuneWave/assets/90756437/0d734508-4209-432b-b448-9df6f4112cd1">  
 </p>
 
 ## 🙆 Que es Tunewave??? 
