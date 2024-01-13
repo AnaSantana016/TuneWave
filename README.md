@@ -6,11 +6,11 @@
 
 ## 🙆 Que es Tunewave??? 
 <img align="left" width="200" height="150" src="https://i.imgur.com/lqvy7iK.gif?raw=true"></a> 
-Tunewave es nuestra App Musical de los sueños 🎶, sumérgete en el mundo de Tunewave.
+Tunewave es nuestra App Musical de los sueños 🎶.
 
 Descubre y experimenta la música como nunca antes lo habías visto. 🎵
 
-Se han realizado dos informes de los dos Sprint de la asignatura utilizando LaTeX y se ha compilado en un documento PDF. 📄
+Se han realizado dos informes de los Sprint de la asignatura utilizando LaTeX y se ha compilado en un documento PDF. 📄
 
 ## 🙆👨‍💻 Autores (Ctrl + Click para ver los perfiles)
 Este informe ha sido elaborado por el Grupo 13 del curso de Programación de Aplicaciones Móviles Nativas (PAMN).
